@@ -40,7 +40,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Daftar Dokter</h3>
+                    <h3 class="card-title">Daftar Obat</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -54,12 +54,21 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach ($obats as $obat)
                             <tr>
-                                <td>1</td>
-                                <td>Paracetamol</td>
-                                <td>Botol</td>
-                                <td>5000</td>
+                                <td>{{ $obat->nama_obat }}</td>
+                                <td>{{ $obat->kemasan }}</td>
+                                <td>Rp{{ number_format($obat->harga, 2, ',', '.') }}</td>
+                                <td>
+                                    <a href="" class="btn btn-sm btn-warning">Edit</a>
+                                    <form action="" method="POST" style="display:inline-block;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" onclick="return confirm('Hapus data ini?')" class="btn btn-sm btn-danger">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>

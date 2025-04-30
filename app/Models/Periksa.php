@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Periksa extends Model
 {
@@ -14,6 +15,7 @@ class Periksa extends Model
         'tgl_periksa',
         'catatan',
         'biaya_periksa',
+        'status',
     ];
 
     public function dokter(): BelongsTo {
@@ -23,4 +25,10 @@ class Periksa extends Model
     public function pasien(): BelongsTo {
         return $this->belongsTo(User::class, 'id_pasien');
     }
+
+    // Periksa.php
+    public function detailPeriksa() {
+        return $this->hasMany(Detail_periksa::class, 'id_periksa');
+    }
+
 }

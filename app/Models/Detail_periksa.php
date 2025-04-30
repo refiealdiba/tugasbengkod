@@ -13,7 +13,8 @@ class Detail_periksa extends Model
         'id_obat',
     ];
 
-    public function obat(): BelongsTo {
-        return $this->belongsTo(Obat::class, 'id');
+    public function obat() {
+        return $this->belongsTo(Obat::class, 'id_obat', 'id');
     }
+    
 }

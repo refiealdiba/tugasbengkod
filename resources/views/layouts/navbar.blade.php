@@ -31,8 +31,5 @@
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" role="button">Log out</a>
-      </li>
     </ul>
   </nav>

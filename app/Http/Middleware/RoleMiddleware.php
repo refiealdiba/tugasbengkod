@@ -16,14 +16,15 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next, ...$roles): Response
     {
-        if(!Auth::check()) {
-            return redirect('login');
+        if (!Auth::check()) {
+            return redirect('/login');
         }
 
-        if(in_array(Auth::user()->role, $roles)) {
+        if (in_array(Auth::user()->role, $roles)) {
             return $next($request);
         }
 
-        abort(403, "Unauthorized.");
+        abort(403, 'Unauthorized.');
     }
+
 }

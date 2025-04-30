@@ -8,8 +8,7 @@ use App\Models\Obat;
 class ObatController extends Controller
 {
     //
-    public function index()
-    {
+    public function index() {
         $obats = Obat::all();
         return view('layouts.list-obat', compact('obats'));
     }
@@ -30,13 +29,9 @@ class ObatController extends Controller
         return redirect()->route('obat.index')->with('success', 'Obat berhasil ditambahkan.');
     }
 
-    public function create() {
-        return view('add-obat');
-    }
-
     public function edit($id) {
         $obat = Obat::findOrFail($id);
-        return view('edit-obat', compact('obat'));
+        return view('layouts.edit-obat', compact('obat'));
     }
 
     public function update(Request $request, $id) {

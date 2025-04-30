@@ -15,7 +15,7 @@
       <a href="#" class="h1 text-bold">Sehat Terus</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Masukkan Email dan Password anda</p>
+      <p class="login-box-msg">Lengkapi Data di bawah ini untuk mendaftar</p>
 
       @if ($errors->any())
         <div class="alert alert-danger">
@@ -27,13 +27,37 @@
         </div>
       @endif
 
-      <form action="{{ route('login') }}" method="post">
+      <form action="{{ route('register.post') }}" method="post">
         @csrf
+        <div class="input-group mb-3">
+          <input type="text" name="nama" class="form-control" value="{{ old('nama') }}" placeholder="Nama" required autofocus>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
         <div class="input-group mb-3">
           <input type="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="Email" required autofocus>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" name="no_hp" class="form-control" value="{{ old('no_hp') }}" placeholder="Nomor Handphone" required autofocus>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-phone"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <textarea type="text" name="alamat" class="form-control" value="{{ old('alamat') }}" placeholder="Alamat" required autofocus></textarea>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-home"></span>
             </div>
           </div>
         </div>
@@ -47,13 +71,13 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
           </div>
           <div class="col-12">
             <hr>            
           </div>
           <div class="col-12 d-flex justify-content-center">
-          <p>Belum punya akun? <a href="/register">Daftar</a></p>
+          <p>Sudah punya akun? <a href="/login">Masuk</a></p>
           </div>
         </div>
       </form>

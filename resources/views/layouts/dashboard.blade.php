@@ -14,7 +14,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <h2>1</h2>
+                    <h2>{{ count($obats) }}</h2>
                 </div>
                 <!-- /.card-body -->
             </div>
@@ -27,7 +27,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <h2>1</h2>
+                    <h2>{{ count($periksas) }}</h2>
                 </div>
                 <!-- /.card-body -->            
             </div>

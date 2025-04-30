@@ -14,6 +14,6 @@ class Obat extends Model
     ];
 
     public function obat(): HasMany {
-        return $this->hasMany(Detail_periksa::class, 'id_obat');
+        return $this->hasMany(Detail_periksa::class, 'id_obat', 'id');
     }
 }
